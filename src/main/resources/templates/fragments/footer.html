@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head></head>
+<body>
+        <footer th:fragment="footerFragment" class="footer bg-dark text-center text-white">
+                <span >Made with <i class="far fa-heart text-success"></i> by Lordcroci</span>
+                <span sec:authorize="isAuthenticated()">
+                | Logged user: <span sec:authentication="name"></span> |
+                Roles: <span sec:authentication="principal.authorities"></span> |
+                <a th:href="@{/logout}">Sign Out</a>
+
+                <script th:src="@{/js/header.js}"></script>
+            </span>
+        </footer>
+</body>
+</html>

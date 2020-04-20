@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+    <div th:fragment="headerFragment">
+        <div class="container mt-1">
+            <nav role="navigation" class="navbar navbar-dark bg-dark navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar -->
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav mr-auto">
+                        <!-- Logo Navbar -->
+                        <span class="navbar-brand nav-item h1 mb-0">StretchU</span>
+                        <!-- Link Home and other pages -->
+                        <a class="nav-link nav-item active" th:href="@{/home}">Home</a>
+                        <a class="nav-link nav-item " th:href="@{/admin}">Admin</a>
+                        <a class="nav-link nav-item " th:href="@{/user}">User</a>
+                        <a class="nav-link nav-item " th:href="@{/index}">Index</a>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
