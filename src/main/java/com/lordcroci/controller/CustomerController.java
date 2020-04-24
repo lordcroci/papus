@@ -1,6 +1,7 @@
 package com.lordcroci.controller;
 
 import com.lordcroci.entity.Customer;
+import com.lordcroci.restService.RestClientImpl;
 import com.lordcroci.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ public class CustomerController
 {
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    RestClientImpl restClient;
 
     @GetMapping("/list")
     public String listCustomers(Model theModel)
