@@ -39,4 +39,9 @@ public class EthereumController {
         model.addAttribute("ethPrice", ethEurResponse.getPrice());
         return "show-eth-price";
     }
+
+    @GetMapping("/header")
+    public String listHeader(Model model) {
+        return "header";
+    }
 }
