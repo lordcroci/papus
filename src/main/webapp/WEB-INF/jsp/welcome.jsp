@@ -4,7 +4,7 @@
 
         <tags:genericpage>
         <jsp:attribute name="header">
-            <title><spring:message code="eth.page.title"/></title>
+            <title><spring:message code="welcome.title"/></title>
         </jsp:attribute>
             <jsp:body>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
