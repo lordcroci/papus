@@ -6,11 +6,28 @@
 
     <display-name>lordcroci</display-name>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/appconfig-root.xml</param-value>
+    </context-param>
+
+<!--    public class WebSecurityConfigurerAdapter extends AbstractSecurityWebApplicationInitializer-->
+<!--    <filter>-->
+<!--        <filter-name>springSecurityFilterChain</filter-name>-->
+<!--        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>springSecurityFilterChain</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
+
     <servlet>
         <servlet-name>lordcroci</servlet-name>
-        <servlet-class>
-            org.springframework.web.servlet.DispatcherServlet
-        </servlet-class>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value></param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -18,4 +35,28 @@
         <servlet-name>lordcroci</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/jsp/error/500.jsp</location>
+    </error-page>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <el-ignored>false</el-ignored>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>false</scripting-invalid>
+            <default-content-type>text/html; charset=UTF-8</default-content-type>
+        </jsp-property-group>
+    </jsp-config>
+
 </web-app>
