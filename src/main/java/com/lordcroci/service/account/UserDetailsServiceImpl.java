@@ -1,6 +1,6 @@
-package com.lordcroci.service;
+package com.lordcroci.service.account;
 
-import com.lordcroci.dao.UserRepository;
+import com.lordcroci.dao.account.UserDao;
 import com.lordcroci.entity.account.Role;
 import com.lordcroci.entity.account.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ import java.util.Set;
 public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Autowired
-    private UserRepository userRepository;
+    private UserDao userDao;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+        User user = userDao.findByUsername(username);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         for (Role role : user.getRoles()){

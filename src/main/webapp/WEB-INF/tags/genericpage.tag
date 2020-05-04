@@ -1,8 +1,9 @@
 <%@tag description="Overall Page template" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <%@attribute name="header" fragment="true" %>
 <%@attribute name="footer" fragment="true" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <html>
     <head>
         <meta charset="utf-8"/>
@@ -26,24 +27,27 @@
             <div class="collapse navbar-collapse justify-content-between" id="nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-light text-uppercase px-3 font-weight-bold">link</a>
+                        <a href="https://github.com/kwon37xi/jsp-template-inheritance" class="nav-link text-light text-uppercase px-3 font-weight-bold">link</a>
                     </li>
                     <li class="nav-item dropdown" data-toggle="dropdown">
-                        <a href="#" class="nav-link text-light text-uppercase px-3 font-weight-bold dropdown-toggle">link</a>
+                        <span class="nav-link text-light text-uppercase px-3 font-weight-bold dropdown-toggle">link</span>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">dropdown1</a>
-                            <a class="dropdown-item" href="#">dropdown2</a>
+                            <a class="dropdown-item" href="https://github.com/kwon37xi/jsp-template-inheritance">jsp</a>
+                            <a class="dropdown-item" href="#">ADVANCED CSS</a>
                             <a class="dropdown-item" href="#">dropdown3</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-light text-uppercase px-3 font-weight-bold">link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-light text-uppercase px-3 font-weight-bold">link</a>
+                        <a href="https://github.com/kwon37xi/jsp-template-inheritance" class="nav-link text-light text-uppercase px-3 font-weight-bold">link</a>
                     </li>
                 </ul>
-
+                <div class="ml-auto">
+                    <a href="javascript: document.logoutForm.submit()" class="nav-link text-light text-uppercase px-3 font-weight-bold">Logout</a>
+                    <form name="logoutForm" action="/logout" method="post" hidden="true">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        <input hidden type="submit" value="Sign Out"/>
+                    </form>
+                </div>
                 <form class="form-inline">
                     <div class="input-group">
                         <input type="text" placeholder="Search..." class="form-control" />
@@ -89,7 +93,7 @@
                     </div>
 
                     <div class="col-4 my-3">
-                        <h4 class="font-italic text-light mb-3">Follow us</h4>
+                        <h4 class="font-italic text-light mb-3"><spring:message code="footer.followus"/></h4>
                         <a href="#"><i class="fab fa-facebook text-primary fa-2x mx-2"></i></a>
                         <a href="#"><i class="fab fa-google-plus text-danger fa-2x mx-2"></i></a>
                         <a href="#"><i class="fab fa-twitter text-info fa-2x mx-2"></i></a>

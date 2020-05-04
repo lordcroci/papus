@@ -2,8 +2,8 @@ package com.lordcroci.controller;
 
 import com.lordcroci.entity.account.User;
 import com.lordcroci.security.UserValidator;
-import com.lordcroci.service.SecurityService;
-import com.lordcroci.service.UserService;
+import com.lordcroci.service.account.SecurityService;
+import com.lordcroci.service.account.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,4 +60,5 @@ public class UserController {
     public String welcome(Model model) {
         return "welcome";
     }
+
 }

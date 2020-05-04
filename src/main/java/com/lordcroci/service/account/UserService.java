@@ -1,4 +1,4 @@
-package com.lordcroci.service;
+package com.lordcroci.service.account;
 
 import com.lordcroci.entity.account.User;
 

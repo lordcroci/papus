@@ -7,11 +7,17 @@
         <jsp:body>
             <div class="container">
                 <div class="row jumbotron">
-                    <div class="col-md-6">
-                        esempio
+                    <div class="col-md-3">
+                        Ciao
                     </div>
-                    <div class="col-md-6">
-                        esempio
+                    <div class="col-md-3">
+                        sono
+                    </div>
+                    <div class="col-md-3">
+                        bello
+                    </div>
+                    <div class="col-md-3">
+                        <a href="www.google.com">google</a>
                     </div>
                 </div>
             </div>

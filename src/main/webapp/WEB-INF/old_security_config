@@ -22,7 +22,7 @@
 <!--        </authentication-provider>-->
 <!--    </authentication-manager>-->
 
-<!--    <beans:bean id="userDetailsServiceImpl" class="com.lordcroci.service.UserDetailsServiceImpl"></beans:bean>-->
+<!--    <beans:bean id="userDetailsServiceImpl" class="com.lordcroci.service.account.UserDetailsServiceImpl"></beans:bean>-->
 
 <!--    <beans:bean id="encoder"-->
 <!--                class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">-->

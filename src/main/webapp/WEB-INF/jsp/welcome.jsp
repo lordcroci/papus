@@ -1,19 +1,18 @@
 <jsp:root version="2.0" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:tags="urn:jsptagdir:/WEB-INF/tags"
-          xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
+          xmlns:spring="http://www.springframework.org/tags" xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:form="http://www.springframework.org/tags/form">
+    <c:set var="contextPath" value="${request.contextPath}"/>
         <tags:genericpage>
-        <jsp:attribute name="header">
-            <title><spring:message code="welcome.title"/></title>
-        </jsp:attribute>
+            <jsp:attribute name="header">
+                <title><spring:message code="welcome.page.title"/></title>
+            </jsp:attribute>
             <jsp:body>
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                    <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                    <form:form action="/logout" method="post">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                    </form>
-
-                    <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
-
+                        <h2>Welcome ${pageContext.request.userPrincipal.name}</h2>
+                        <input type="submit" value="Log out"/>
+                    </form:form>
                 </c:if>
             </jsp:body>
         </tags:genericpage>

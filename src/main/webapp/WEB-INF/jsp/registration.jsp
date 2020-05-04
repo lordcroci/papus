@@ -4,7 +4,7 @@
     <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
         <tags:genericpage>
             <jsp:attribute name="header">
-                <title><spring:message code="portfolio.page.title"/></title>
+                <title><spring:message code="registration.page.title"/></title>
             </jsp:attribute>
                 <jsp:body>
                     <div class="container">

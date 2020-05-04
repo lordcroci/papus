@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @ComponentScan(basePackages={"com.lordcroci"})
@@ -38,8 +39,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .and()
                 .formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
                 .and()
-                .logout().permitAll()
-                .and().csrf().disable();
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login").logoutUrl("/logout").permitAll()
+                .deleteCookies("JSESSIONID").invalidateHttpSession(true)
+                .and().headers().disable();
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.lordcroci.security;
 
-import com.lordcroci.service.UserService;
+import com.lordcroci.service.account.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

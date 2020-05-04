@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class EthereumController {
 
     @Autowired
-    RestClientImpl restClient;
+    private RestClientImpl restClient;
 
     @RequestMapping(value="/eth", method=RequestMethod.GET)
     public String listEth(Model model) {
