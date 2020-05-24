@@ -1,7 +1,7 @@
 package com.lordcroci.controller;
 
 import com.lordcroci.entity.account.User;
-import com.lordcroci.security.UserValidator;
+import com.lordcroci.validator.UserValidator;
 import com.lordcroci.service.account.SecurityService;
 import com.lordcroci.service.account.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +56,7 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String welcome(Model model) {
         return "welcome";
     }

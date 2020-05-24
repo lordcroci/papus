@@ -1,4 +1,4 @@
-package com.lordcroci.security;
+package com.lordcroci.validator;
 
 import com.lordcroci.service.account.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

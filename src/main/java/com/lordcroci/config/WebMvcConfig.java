@@ -94,4 +94,22 @@ import org.springframework.web.servlet.view.JstlView;
         return validator;
     }
 
+//    @Bean
+//    public Formatter<LocalDateTime> localDateFormatter() {
+//        return new Formatter<LocalDateTime>() {
+//            @Override
+//            public String print(LocalDateTime object, Locale locale) {
+//                return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(object);
+//            }
+//
+//            @Override
+//            public LocalDateTime parse(String text, Locale locale) throws ParseException {
+//                return LocalDateTime.parse(text, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+//            }
+//        };
+//    }
+//    @Override
+//    public void addFormatters(FormatterRegistry registry) {
+//        registry.addConverter(new LocalDateTimeConverter("yyyy-MM-dd HH:mm:ss"));
+//    }
 }

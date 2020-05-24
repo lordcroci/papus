@@ -1,13 +1,15 @@
 package com.lordcroci.service.expense;
 
+import com.lordcroci.dao.account.UserDao;
 import com.lordcroci.dao.expense.ExpenseDao;
+import com.lordcroci.entity.account.User;
 import com.lordcroci.entity.expenseTracker.Expense;
+import com.lordcroci.service.account.SecurityService;
+import com.lordcroci.service.account.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.QueryHint;
 import java.util.List;
 
 @Service
@@ -16,6 +18,15 @@ public class ExpenseServiceImpl implements ExpenseService
 {
     @Autowired
     private ExpenseDao expenseDao;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    SecurityService securityService;
+
+    @Autowired
+    private UserDao userDao;
 
     public Expense findByID(Long id)
     {
@@ -29,6 +40,8 @@ public class ExpenseServiceImpl implements ExpenseService
 
     public void save(Expense entity)
     {
+        User currentUser = userService.findByUsername(securityService.getLoggedUserUsername());
+        entity.setUser(currentUser);
         expenseDao.save(entity);
     }
 

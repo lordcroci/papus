@@ -19,15 +19,31 @@
     </head>
 <body>
     <div id="pageheader">
+        <!-- NAVBAR -->
         <nav class="navbar navbar-expand-md navbar-light bg-secondary">
+            <!-- LOGO -->
             <img src="/resources/images/logo1.png" alt="logo" height="50" />
+            <!-- NAV COLLAPSE BUTTON -->
             <button type="button" class="navbar-toggler bg-light" data-toggle="collapse" data-target="#nav"><span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- NAV -->
             <div class="collapse navbar-collapse justify-content-between" id="nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="https://github.com/kwon37xi/jsp-template-inheritance" class="nav-link text-light text-uppercase px-3 font-weight-bold">link</a>
+                        <a href="/portfolio/index" class="nav-link text-light text-uppercase px-3 font-weight-bold">Index</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/eth" class="nav-link text-light text-uppercase px-3 font-weight-bold">Eth Price</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/expCounter" class="nav-link text-light text-uppercase px-3 font-weight-bold">Exp Counter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/portfolio/advancedCss" class="nav-link text-light text-uppercase px-3 font-weight-bold">Advanced CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/portfolio/bootstrapFour" class="nav-link text-light text-uppercase px-3 font-weight-bold">Bootstrap 4</a>
                     </li>
                     <li class="nav-item dropdown" data-toggle="dropdown">
                         <span class="nav-link text-light text-uppercase px-3 font-weight-bold dropdown-toggle">link</span>
@@ -38,7 +54,16 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a href="https://github.com/kwon37xi/jsp-template-inheritance" class="nav-link text-light text-uppercase px-3 font-weight-bold">link</a>
+                        <a href="/" class="nav-link text-light text-uppercase px-3 font-weight-bold">Index</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/welcome" class="nav-link text-light text-uppercase px-3 font-weight-bold">Welcome</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link text-light text-uppercase px-3 font-weight-bold">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/registration" class="nav-link text-light text-uppercase px-3 font-weight-bold">Registration</a>
                     </li>
                 </ul>
                 <div class="ml-auto">
@@ -103,7 +128,7 @@
             </div>
         </footer>
     </div>
-    <script src="/webjars/jquery/3.5.0/jquery.min.js" ></script>
+    <script src="/webjars/jquery/3.4.1/jquery.min.js" ></script>
     <script src="/webjars/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 </body>
 </html>

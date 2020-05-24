@@ -1,9 +1,15 @@
 package com.lordcroci.entity.expenseTracker;
 
+import com.lordcroci.entity.account.User;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "expense")
@@ -16,23 +22,31 @@ public class Expense implements Serializable
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_id")
-    private Long userId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="user_id", nullable=false)
+//    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private User user;
 
+    @NotNull
+    @DecimalMax("1000000")
     @Column(name = "amount")
     private BigDecimal amount;
 
+    @Size(max = 250)
     @Column(name = "description")
     private String description;
 
-    @Column(name = "on_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date spentOnDate;
+    @NotNull
+    @PastOrPresent
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "on_date", columnDefinition = "DATETIME")
+    private LocalDate spentOnDate;
 
     public Expense(){};
-    public Expense(Long userId, BigDecimal amount, String description, Date spentOnDate)
+    public Expense(User user, BigDecimal amount, String description, LocalDate spentOnDate)
     {
-        this.userId = userId;
+        this.user = user;
         this.amount = amount;
         this.description = description;
         this.spentOnDate = spentOnDate;
@@ -46,12 +60,12 @@ public class Expense implements Serializable
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public BigDecimal getAmount() {
@@ -70,11 +84,11 @@ public class Expense implements Serializable
         this.description = description;
     }
 
-    public Date getSpentOnDate() {
+    public LocalDate getSpentOnDate() {
         return spentOnDate;
     }
 
-    public void setSpentOnDate(Date spentOnDate) {
+    public void setSpentOnDate(LocalDate spentOnDate) {
         this.spentOnDate = spentOnDate;
     }
 }

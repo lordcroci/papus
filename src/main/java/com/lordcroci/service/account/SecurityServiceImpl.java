@@ -34,7 +34,7 @@ public class SecurityServiceImpl implements SecurityService {
         return null;
     }
 
-    public String getLoggerUserUsername()
+    public String getLoggedUserUsername()
     {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!(authentication instanceof AnonymousAuthenticationToken)) {

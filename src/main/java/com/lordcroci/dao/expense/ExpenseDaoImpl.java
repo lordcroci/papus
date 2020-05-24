@@ -21,7 +21,7 @@ public class ExpenseDaoImpl extends AbstractHibernateDao<Expense> implements Exp
         List<Object[]> expenses = getCurrentSession().createQuery(
 
                             "from Expense exp " +
-                            "join User u on exp.userId = u.id " +
+                            "join User u on exp.user.id = u.id " +
                             "where u.username = :username")
                 .setParameter("username", username).getResultList();
 
