@@ -1,3 +1,5 @@
+
+-- MYSQL 8
 DROP TABLE IF EXISTS user;
 CREATE TABLE user (
   id BIGINT NOT NULL AUTO_INCREMENT,
@@ -5,3 +7,10 @@ CREATE TABLE user (
   password varchar(255) DEFAULT NULL,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--POSTGRES 12
+CREATE TABLE customers (
+  id BIGSERIAL PRIMARY KEY,
+  username varchar(255) DEFAULT NULL,
+  password varchar(255) DEFAULT NULL
+)

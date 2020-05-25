@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "expense")
+@Table(name = " expenses")
 public class Expense implements Serializable
 {
     private static final long serialVersionUID = -7179454458042397155L;
@@ -23,8 +23,7 @@ public class Expense implements Serializable
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="user_id", nullable=false)
-//    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name="customer_id", nullable=false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 

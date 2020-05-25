@@ -9,12 +9,16 @@ import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
 public class RestClientImpl
 {
+    Logger log = LoggerFactory.getLogger(RestClientImpl.class);
+
     private final static String SYMBOL_PARAM_ETH = "fsym=ETH";
     private final static String CURRENCY_PARAM_EUR = "tsyms=EUR";
     private final static String URL_GET_PRICE = "https://min-api.cryptocompare.com/data/price";
@@ -35,7 +39,7 @@ public class RestClientImpl
             //Create a custom response handler
             ResponseHandler<String> responseHandler = response -> {
                 int status = response.getStatusLine().getStatusCode();
-                if (status >= 200 && status <= 300)
+                if (status >= 200 && status < 300)
                 {
                     HttpEntity entity = response.getEntity();
                     return entity != null
@@ -44,7 +48,7 @@ public class RestClientImpl
                 }
                 else
                 {
-                    throw new ClientProtocolException("REST CLIENT - Unexpected response status code: " + status);
+                    throw new ClientProtocolException("ETH GET PRICE - Unexpected response status code: " + status);
                 }
             };
             //Send basic GET request via execute() method
@@ -52,8 +56,7 @@ public class RestClientImpl
         }
         catch (IOException e)
         {
-            //TODO aggiungere logger
-            e.printStackTrace();
+            log.error("ETH GET PRICE - Error: {}", e.toString());
         }
         return null;
     }
